@@ -1,0 +1,122 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="Site.master.cs" Inherits="ProyectoFinalASP.SiteMaster" %>
+
+<!DOCTYPE html>
+
+<html lang="es">
+<head runat="server">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title><%: Page.Title %> - MoviRutas</title>
+
+    <asp:PlaceHolder runat="server">
+        <%: Scripts.Render("~/bundles/modernizr") %>
+    </asp:PlaceHolder>
+
+    
+    <%-- Icono Página --%>
+    <link href="~/favicon.ico" rel="shortcut icon" type="image/x-icon" />
+    <%-- JQuery 3.6.1 --%>
+    <script src="https://code.jquery.com/jquery-3.6.1.js"
+        integrity="sha256-3zlB5s2uwoUzrXK3BT7AX3FyvojsraNFxCc2vC/7pNI="
+        crossorigin="anonymous"></script>
+    <%-- Bootstrap 5.2.1 --%>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT" crossorigin="anonymous" />
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-u1OknCvxWvY5kfmNBILK2hRnQC3Pr17a+RTT6rIHI7NnikvbZlHgTPOOmMi466C8"
+        crossorigin="anonymous"></script>
+    <%-- Leaflet --%>
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.8.0/dist/leaflet.css" integrity="sha512-hoalWLoI8r4UszCkZ5kL8vayOGVae1oxXe/2A4AO6J9+580uKHDO3JdHb7NzwwzK5xr/Fs0W40kiNHxM9vyTtQ==" crossorigin="" />
+    <script src="https://unpkg.com/leaflet@1.8.0/dist/leaflet.js"
+        integrity="sha512-BB3hKbKWOc9Ez/TAwyWxNXeoV9c1v6FIeYiBieIWkpLjauysF18NzgR1MBNBXf8/KABdlkX68nAhlwcDFLGPCQ=="
+        crossorigin=""></script>
+    <%-- CSS --%>
+    <link href="./Content/styles.css" rel="stylesheet" type="text/css" />
+</head>
+
+<body>
+    <form runat="server">
+        <asp:ScriptManager runat="server">
+            <Scripts>
+                <%--To learn more about bundling scripts in ScriptManager see https://go.microsoft.com/fwlink/?LinkID=301884 --%>
+                <%--Framework Scripts--%>
+                <asp:ScriptReference Name="MsAjaxBundle" />
+                <asp:ScriptReference Name="WebForms.js" Assembly="System.Web" Path="~/Scripts/WebForms/WebForms.js" />
+                <asp:ScriptReference Name="WebUIValidation.js" Assembly="System.Web" Path="~/Scripts/WebForms/WebUIValidation.js" />
+                <asp:ScriptReference Name="MenuStandards.js" Assembly="System.Web" Path="~/Scripts/WebForms/MenuStandards.js" />
+                <asp:ScriptReference Name="GridView.js" Assembly="System.Web" Path="~/Scripts/WebForms/GridView.js" />
+                <asp:ScriptReference Name="DetailsView.js" Assembly="System.Web" Path="~/Scripts/WebForms/DetailsView.js" />
+                <asp:ScriptReference Name="TreeView.js" Assembly="System.Web" Path="~/Scripts/WebForms/TreeView.js" />
+                <asp:ScriptReference Name="WebParts.js" Assembly="System.Web" Path="~/Scripts/WebForms/WebParts.js" />
+                <asp:ScriptReference Name="Focus.js" Assembly="System.Web" Path="~/Scripts/WebForms/Focus.js" />
+                <asp:ScriptReference Name="WebFormsBundle" />
+                <%--Site Scripts--%>
+            </Scripts>
+        </asp:ScriptManager>
+
+        <!-- NAV/Top content -->
+        <nav class="navbar navbar-light bg-light menuPrincipal">
+            <h1 class="navbar-brand pt-3" id="tituloPagina"><%: Page.Title %></h1>
+        </nav>
+
+        <div class="sticky-top">
+            <div class="row nav menuPrincipal pb-2" style="width:100.65%">
+                <div class="col-md-3">
+                    <asp:Label Font-Names="Calibri, sans-seriff" class="nav-link" ID="textoUserLogin" runat="server" Font-Size="Medium" Style="text-align: left"></asp:Label>
+                </div>
+
+                <div class="col-md-6 content-justify-center">
+                    <ul class="nav">
+                        <li class="nav-item">
+                            <asp:HyperLink class="nav-link" href="./PaginaPrincipal.aspx" ID="PagPrincipal" runat="server" Font-Size="Medium">Página Principal</asp:HyperLink>
+                        </li>
+
+                        <li class="nav-item">
+                            <asp:HyperLink class="nav-link" href="./RutasDisponibles.aspx" ID="RutasDisp" runat="server" Font-Size="Medium">Rutas Disponibles</asp:HyperLink>
+                        </li>
+
+                        <li class="nav-item">
+                            <asp:HyperLink class="nav-link" href="./RutaCrear.aspx" ID="CrearRuta" runat="server" Font-Size="Medium">Crear Ruta</asp:HyperLink>
+                        </li>
+
+                        <li class="nav-item">
+                            <asp:HyperLink class="nav-link" href="./EventosDisponibles.aspx" ID="EventosDisp" runat="server" Font-Size="Medium">Eventos Disponibles</asp:HyperLink>
+                        </li>
+
+                        <li class="nav-item">
+                            <asp:HyperLink class="nav-link" href="./PaginaUsuario.aspx" ID="PagUser" runat="server" Font-Size="Medium">Mi Perfil</asp:HyperLink>
+                        </li>
+                    </ul>
+                </div>
+
+                <div class="col-md-3 content-justify-right">
+                    <ul class="nav">
+                        <li class="nav-item">
+                            <asp:HyperLink class="nav-link ms-2" href="./Register.aspx" ID="Register" runat="server" Font-Size="Medium">Registro</asp:HyperLink>
+                        </li>
+                        <li class="nav-item">
+                            <asp:HyperLink class="nav-link ms-2" href="./Login.aspx" ID="Login" runat="server" Font-Size="Medium">Iniciar Sesión</asp:HyperLink>
+                        </li>
+                        <li class="nav-item">
+                            <asp:LinkButton class="nav-link ms-2" ID="Logout" runat="server" OnClick="Logout_Click" Font-Size="Medium">Cerrar Sesión</asp:LinkButton>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <!-- Body content -->
+        <div class="body-content">
+            <asp:ContentPlaceHolder ID="MainContent" runat="server">
+            </asp:ContentPlaceHolder>
+        </div>
+
+        <!-- Floor content -->
+        <footer class="fixed-bottom text-center pt-2 pb-2" id="footer">
+            MoviRutas &nbsp;&copy;&nbsp; <%: DateTime.Now.Year %>
+        </footer>
+    </form>
+
+</body>
+
+</html>

@@ -1,0 +1,89 @@
+* {
+    font-family: Arial, Helvetica, sans-serif !important;
+}
+
+.menuPrincipal {
+    background: linear-gradient(80.41deg, rgba(176, 56, 232, 0.888) -23.1%, rgba(77, 91, 239, 0.84) 43.41%, rgba(237, 110, 137, 0.84) 111.68%);
+    color: white;
+    text-decoration: none;
+}
+
+.nav-link {
+    color: white !important;
+}
+
+    .menuPrincipal:hover,
+    .nav-link:hover {
+        color: rgb(220, 217, 217) !important;
+    }
+
+#tituloPagina {
+    font-size: 25px;
+    padding-left: 50px;
+    color: white;
+}
+
+#footer {
+    background-color: rgba(0, 0, 0, 0.901);
+    color: white;
+}
+
+
+.btn-primary {
+    font-size: 20px;
+    background-color: rgb(121, 156, 231);
+    border: 0;
+    transition: 0.6s;
+}
+
+    .btn-primary:focus {
+        background-color: #7788e6;
+    }
+
+    .btn-primary:hover {
+        background-color: rgba(121, 156, 231, 0.887);
+        padding-left: 20px;
+        padding-right: 20px;
+        transition: 0.6s;
+    }
+
+button.swal-button.swal-button--confirm {
+    background-color: rgb(121, 156, 231);
+    border: 0;
+    transition: 0.6s;
+}
+
+    button.swal-button.swal-button--confirm:hover {
+        background-color: rgba(124, 149, 205, 0.887);
+        padding-left: 30px;
+        padding-right: 30px;
+        transition: 0.6s;
+    }
+
+    button.swal-button.swal-button--confirm:focus {
+        background-color: #7788e6;
+    }
+
+.form-text {
+    color: #ed7c82ef;
+}
+
+.form-label {
+    color: rgba(86, 86, 86, 0.932);
+    font-size: 18px;
+    font-weight: 500;
+}
+
+input#fechaNacimiento {
+    color: rgba(86, 86, 86, 0.932);
+}
+
+.form-control:hover {
+    background-color: #dbbbcc0f;
+    transition: 0.6s;
+}
+
+.form-control {
+    border-color: rgba(205, 204, 204, 0.794);
+    transition: 0.6s;
+}
